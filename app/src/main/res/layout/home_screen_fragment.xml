@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.gahov.car_plate_recognition.app.ui.home.HomeViewModel" />
@@ -11,37 +13,47 @@
             type="com.gahov.car_plate_recognition.app.ui.home.HomeFragment" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingTop="16dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
+        android:padding="@dimen/grid_16"
         tools:context=".app.ui.main.MainActivity">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_width="0dp"
+            android:layout_height="@dimen/grid_200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/home_fragment_image_description" />
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:freezesText="true"
-            android:gravity="center_horizontal"
+            android:textColor="@color/colorBlack"
             android:text="@string/press_the_button_below_to_start_a_request"
-            android:textSize="20sp" />
+            android:textSize="@dimen/test_size_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/colorAccent"
+            app:cornerRadius="@dimen/grid_8"
+            android:layout_marginTop="@dimen/grid_16"
+            app:layout_constraintTop_toBottomOf="@id/textView"
             android:onClick="@{() -> presenter.dispatchTakePictureIntent()}"
             android:text="@string/take_picture" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
