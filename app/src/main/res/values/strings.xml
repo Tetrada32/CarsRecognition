@@ -1,5 +1,14 @@
 <resources>
+<!--    General -->
     <string name="app_name">car_plate_recognition</string>
-    <string name="press_the_button_below_to_start_a_request">Press the button below to start a request.</string>
+<!--    Home fragment -->
     <string name="take_picture">Take Picture</string>
+    <string name="processing">Processing</string>
+    <string name="press_the_button_below_to_start_a_request">Press the button below to start a request.</string>
+    <string name="home_fragment_image_description">Here you can find the photo you have made by using Camera</string>
+<!--    Errors -->
+    <string name="recognizing_error_text">It was not possible to detect the licence plate.</string>
+    <string name="plate_text">\"Plate: \"</string>
+    <string name="confidence_text">\" Confidence: \"</string>
+    <string name="persent">%</string>
 </resources>
