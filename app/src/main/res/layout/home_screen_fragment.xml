@@ -6,11 +6,11 @@
 
         <variable
             name="viewModel"
-            type="com.gahov.car_plate_recognition.app.ui.home.HomeViewModel" />
+            type="com.car_plate.car_plate_recognition.app.ui.home.HomeViewModel" />
 
         <variable
             name="presenter"
-            type="com.gahov.car_plate_recognition.app.ui.home.HomeFragment" />
+            type="com.car_plate.car_plate_recognition.app.ui.home.HomeFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,6 +54,36 @@
             app:layout_constraintTop_toBottomOf="@id/textView"
             android:onClick="@{() -> presenter.dispatchTakePictureIntent()}"
             android:text="@string/take_picture" />
+
+        <TextView
+            android:id="@+id/tvCarModel"
+            android:layout_width="wrap_content"
+            android:text="Model: "
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/grid_16"
+            android:layout_marginTop="@dimen/grid_16"
+            app:layout_constraintTop_toBottomOf="@id/button"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvCarYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_16"
+            android:layout_marginTop="@dimen/grid_16"
+            android:text="Year: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCarModel"/>
+
+        <TextView
+            android:id="@+id/tvCarRegion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/grid_16"
+            android:layout_marginTop="@dimen/grid_16"
+            android:text="Region: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCarYear"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

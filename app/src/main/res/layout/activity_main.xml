@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.gahov.car_plate_recognition.app.ui.main.MainViewModel" />
+            type="com.car_plate.car_plate_recognition.app.ui.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

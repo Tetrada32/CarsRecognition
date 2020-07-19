@@ -1,2 +1,4 @@
+include ':domain'
+include ':data'
 rootProject.name='car_plate_recognition'
 include ':app'
