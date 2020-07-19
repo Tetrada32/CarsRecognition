@@ -1,42 +1,70 @@
 package com.gahov.car_plate_recognition.app.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.BitmapFactory
+import android.net.Uri
+import android.os.Environment
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.gahov.car_plate_recognition.app.arch.BaseCoroutinesViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import org.openalpr.OpenALPR
+import com.gahov.car_plate_recognition.app.util.Constants
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
+import com.google.firebase.ml.vision.text.FirebaseVisionText
 import java.io.File
+import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeViewModel : BaseCoroutinesViewModel() {
 
-    private val options = BitmapFactory.Options()
-
     val recognitionResult = MutableLiveData<String>()
 
-    fun recognizePlateNumber(
-        context: Context,
-        ANDROID_DATA_DIR: String?,
-        destination: File?
-    ) {
-        scope.launch {
-            withContext(Dispatchers.IO) {
-                val openAlprConfFile = ANDROID_DATA_DIR + File.separatorChar + "runtime_data" +
-                        File.separatorChar + "openalpr.conf"
-                options.inSampleSize = 10
+    fun processImage(context: Context, photoUri: Uri) {
 
-                val result = OpenALPR.Factory.create(context, ANDROID_DATA_DIR)
-                    .recognizeWithCountryRegionNConfig(
-                        "eu",
-                        "",
-                        destination?.absolutePath,
-                        openAlprConfFile,
-                        10
-                    )
-                recognitionResult.postValue(result)
+        val image = FirebaseVisionImage.fromFilePath(context, photoUri)
+        val detector = FirebaseVision.getInstance().onDeviceTextRecognizer
+
+        detector.processImage(image)
+            .addOnSuccessListener { firebaseVisionText ->
+                processResultText(firebaseVisionText)
             }
+            .addOnFailureListener {
+                recognitionResult.postValue("Error!")
+            }
+    }
+
+
+    private fun processResultText(resultText: FirebaseVisionText) {
+        if (resultText.textBlocks.size == 0) {
+            recognitionResult.postValue("Error!")
+            return
+        }
+        for (block in resultText.textBlocks) {
+            val blockLine = block.lines
+            for (i in blockLine) {
+                val carPlate = i.text.replace("\\s".toRegex(), "")
+                Log.d("sds", carPlate)
+                if (carPlate.length == 8) {
+                    recognitionResult.postValue(carPlate)
+                } else if (carPlate.length == 10 && carPlate.contains("UA")) {
+                    carPlate.replace("UA", "")
+                    recognitionResult.postValue(carPlate)
+                    }
+                }
+            }
+        }
+
+    @SuppressLint("SimpleDateFormat")
+    @Throws(IOException::class)
+    fun createImageFile(context: Context): File {
+        // Create an image file name
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile(
+            Constants.JPEG_PREFIX + "${timeStamp}_", Constants.JPEG_SUFFIX, storageDir
+        ).apply {
+            absolutePath
         }
     }
 }
