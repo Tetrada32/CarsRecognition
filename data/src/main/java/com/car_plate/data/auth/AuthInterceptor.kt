@@ -12,7 +12,7 @@ class AuthInterceptor() : Interceptor {
 
             val decorateRequest = request()
                 .newBuilder()
-                .addHeader(HEADER_ACCEPT, "*/*")
+                .addHeader(HEADER_ACCEPT, "application/json")
 
             proceed(decorateRequest.build())
         }

@@ -1,5 +1,7 @@
-package com.car_plate.data.entity.car
+package com.car_plate.data.entity
 
+import com.car_plate.data.entity.car.ApiCarOperations
+import com.car_plate.data.entity.car.ApiCarRegion
 import com.google.gson.annotations.SerializedName
 
 class ApiCar(

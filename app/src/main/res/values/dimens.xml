@@ -5,5 +5,12 @@
     <dimen name="grid_200">200dp</dimen>
 
     <dimen name="test_size_20">20sp</dimen>
+    <dimen name="grid_100">100dp</dimen>
+    <dimen name="grid_350">350dp</dimen>
+    <dimen name="grid_150">150dp</dimen>
+    <dimen name="grid_300">300dp</dimen>
+    <dimen name="grid_24">24dp</dimen>
+    <dimen name="grid_400">400dp</dimen>
+    <dimen name="grid_250">250dp</dimen>
 
 </resources>

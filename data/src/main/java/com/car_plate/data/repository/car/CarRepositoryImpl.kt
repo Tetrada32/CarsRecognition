@@ -1,6 +1,6 @@
-package com.car_plate.domain.repository.car
+package com.car_plate.data.repository.car
 
-import com.car_plate.data.entity.car.ApiCar
+import com.car_plate.data.entity.ApiCar
 import com.car_plate.data.mapper.ApiMapper
 import com.car_plate.domain.entity.Car
 import com.car_plate.domain.repository.CarRepository

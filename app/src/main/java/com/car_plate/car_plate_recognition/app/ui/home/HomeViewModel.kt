@@ -28,11 +28,6 @@ class HomeViewModel : BaseCoroutinesViewModel(), KoinComponent {
 
     val carData = getCarInfoUseCase.carSuccess
 
-//    init {
-//        getCarInfoUseCase.carError.observeForever(readEventsFailedObserver)
-//    }
-
-
     fun processImage(context: Context, photoUri: Uri) {
 
         val image = FirebaseVisionImage.fromFilePath(context, photoUri)

@@ -58,9 +58,10 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
     }
 
     private fun showCarResult(car: Car) {
-        binding.tvCarModel.text = car.model
-        binding.tvCarYear.text = car.year.toString()
-        binding.tvCarRegion.text = car.region?.nameUa
+        binding.tvCarModel.append(car.vendor + " " + car.model)
+        binding.tvCarYear.append(car.year)
+        binding.tvCarRegion.append(car.isStolen.toString())
+        car.photoUrl?.let { imageLoader.loadImage(binding.carDBImage, it) }
     }
 
     override fun onActivityResult(
