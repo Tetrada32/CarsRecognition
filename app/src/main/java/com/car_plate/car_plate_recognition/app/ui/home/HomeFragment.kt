@@ -1,5 +1,6 @@
 package com.car_plate.car_plate_recognition.app.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -57,11 +58,13 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
         viewModel.carData.observe(viewLifecycleOwner, Observer { showCarResult(it) })
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showCarResult(car: Car) {
-        binding.tvCarModel.append(car.vendor + " " + car.model)
-        binding.tvCarYear.append(car.year)
-        binding.tvCarRegion.append(car.isStolen.toString())
-        car.photoUrl?.let { imageLoader.loadImage(binding.carDBImage, it) }
+        binding.tvCarModel.text = getString(R.string.model) + car.vendor + " " + car.model
+        binding.tvCarYear.text = getString(R.string.year) + car.year
+        binding.tvCarRegion.text = getString(R.string.region) + car.region
+        binding.tvCarIsStolen.text = ifIsStolen(car.isStolen)
+        car.photoUrl?.let { imageLoader.loadImage(binding.imageView, it) }
     }
 
     override fun onActivityResult(
@@ -72,7 +75,7 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
         super.onActivityResult(requestCode, resultCode, data)
 
         imageLoader.loadImage(binding.imageView, destination)
-        binding.textView.text = ""
+        binding.numberInput.setText("")
 
         Handler().postDelayed({
             val photoURI: Uri = destination?.let {
@@ -105,13 +108,26 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
     }
 
     private fun setRecognitionResult(result: String) {
-        binding.textView.append(result + "\n")
+        if (result.length == 8) {
+            binding.numberInput.append(result + "\n")
+        }
     }
 
     private fun showError(message: String) {
         message.apply {
             saveContext.toast(this)
-            binding.textView.text = this
+        }
+    }
+
+    fun searchByText() {
+        viewModel.searchCarByText(binding.numberInput.text.toString())
+    }
+
+    private fun ifIsStolen(isStolen: Boolean) : String {
+        return if (isStolen) {
+            "Угон: Числится в угоне"
+        } else {
+            "Угон: Не числится в угоне"
         }
     }
 }

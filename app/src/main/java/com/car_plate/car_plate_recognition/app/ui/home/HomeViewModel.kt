@@ -71,6 +71,11 @@ class HomeViewModel : BaseCoroutinesViewModel(), KoinComponent {
         }
     }
 
+    fun searchCarByText(carPlate: String) {
+        if (carPlate.length == 8)
+        getCarInfoByPlateNumber(carPlate)
+    }
+
     @SuppressLint("SimpleDateFormat")
     @Throws(IOException::class)
     fun createImageFile(context: Context): File {

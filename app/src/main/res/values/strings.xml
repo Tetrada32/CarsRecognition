@@ -11,4 +11,11 @@
     <string name="plate_text">\"Plate: \"</string>
     <string name="confidence_text">\" Confidence: \"</string>
     <string name="persent">%</string>
+    <string name="hint_car_plate">AA7845AI</string>
+    <string name="text_search">Найти автомобиль!</string>
+    <string name="text_take_a_photo">Сфотографировать номер</string>
+    <string name="model">\"Модель: \"</string>
+    <string name="year">\"Год: \"</string>
+    <string name="isStolen">\"В угоне: \"</string>
+    <string name="region">\"Регион: \"</string>
 </resources>
