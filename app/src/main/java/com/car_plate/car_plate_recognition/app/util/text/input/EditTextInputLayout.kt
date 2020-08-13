@@ -10,8 +10,8 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
 import androidx.databinding.InverseBindingListener
 import com.car_plate.car_plate_recognition.R
-import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.layout_text_input.view.*
+import java.util.*
 
 class EditTextInputLayout @JvmOverloads constructor(
     context: Context,
@@ -41,23 +41,12 @@ class EditTextInputLayout @JvmOverloads constructor(
         inputType = typedArray.getInt(R.styleable.EditTextInputLayout_android_inputType, inputType)
         imeOptions =
             typedArray.getInt(R.styleable.EditTextInputLayout_android_imeOptions, imeOptions)
-        text = typedArray.getString(R.styleable.EditTextInputLayout_android_text) ?: text
+        text = typedArray.getString(R.styleable.EditTextInputLayout_android_text) ?: text?.toUpperCase(
+            Locale.ROOT
+        )
         maxLines = typedArray.getInt(R.styleable.EditTextInputLayout_android_maxLines, maxLines)
         error = typedArray.getString(R.styleable.EditTextInputLayout_error) ?: error
         textInputLayout.error = error
-        with(textInputLayout) {
-            if (typedArray.hasValue(R.styleable.EditTextInputLayout_iconMode)) {
-                endIconMode = typedArray.getInt(
-                    R.styleable.EditTextInputLayout_iconMode,
-                    TextInputLayout.END_ICON_NONE
-                )
-                if (typedArray.hasValue(R.styleable.EditTextInputLayout_iconDrawable)) {
-                    endIconDrawable =
-                        typedArray.getDrawable(R.styleable.EditTextInputLayout_iconDrawable)
-                }
-                isEndIconCheckable = true
-            }
-        }
 
         typedArray.recycle()
     }
@@ -67,7 +56,7 @@ class EditTextInputLayout @JvmOverloads constructor(
         setSubHint(subHint)
         setInputType(inputType)
         setImeOptions(imeOptions)
-        setText(text)
+        setText(text?.toUpperCase(Locale.ROOT))
         setMaxLines(maxLines)
     }
 
@@ -93,7 +82,7 @@ class EditTextInputLayout @JvmOverloads constructor(
 
     fun setText(text: String?) {
         this.text = text
-        textInput.setText(text)
+        textInput.setText(text?.toUpperCase(Locale.ROOT))
     }
 
     fun setMaxLines(maxLines: Int) {
@@ -122,13 +111,13 @@ class EditTextInputLayout @JvmOverloads constructor(
 @BindingAdapter("android:text")
 fun setText(view: EditTextInputLayout, text: String?) {
     if (view.getText() != text) {
-        view.setText(text)
+        view.setText(text?.toUpperCase(Locale.ROOT))
     }
 }
 
 @InverseBindingAdapter(attribute = "android:text")
 fun getText(view: EditTextInputLayout): String? {
-    return view.getText()
+    return view.getText()?.toUpperCase(Locale.ROOT)
 }
 
 @BindingAdapter(value = ["android:textAttrChanged"])

@@ -15,12 +15,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-        android:layout_width="match_parent"
+        style="@style/CarPlateTextInputLayoutStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_16"
         android:layout_marginEnd="@dimen/grid_16"
-        app:boxStrokeWidthFocused="1dp"
         app:errorEnabled="true"
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,13 +30,17 @@
             android:id="@+id/textInput"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:maxLength="10"
-            tools:text="ВА 6130 АИ"
-            android:textStyle="bold"
             android:background="@android:color/transparent"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYУИЛФСМРО1234567890"
+            android:inputType="textFilter"
+            android:letterSpacing="0.05"
+            android:maxLength="8"
             android:padding="@dimen/grid_0"
-            android:textAlignment="textStart"
-            />
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textSize="@dimen/test_size_25"
+            android:textStyle="bold"
+            tools:text="ВА 6130 АИ" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

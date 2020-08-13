@@ -13,5 +13,6 @@
     <dimen name="grid_400">400dp</dimen>
     <dimen name="grid_250">250dp</dimen>
     <dimen name="grid_0">0dp</dimen>
+    <dimen name="test_size_25">25sp</dimen>
 
 </resources>
