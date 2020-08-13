@@ -13,30 +13,42 @@
             type="com.car_plate.car_plate_recognition.app.ui.home.HomeFragment" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="@dimen/grid_16"
         tools:context=".app.ui.main.MainActivity">
 
+        <com.car_plate.car_plate_recognition.app.util.text.input.EditTextInputLayout
+            android:id="@+id/numberInput"
+            android:layout_width="@dimen/grid_0"
+            android:layout_height="80dp"
+            android:layout_marginTop="50dp"
+            android:maxLines="1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:layout_constraintBottom_toTopOf="@id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="@dimen/grid_200"
+            android:contentDescription="@string/home_fragment_image_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/home_fragment_image_description" />
+            app:layout_constraintTop_toBottomOf="@id/numberInput" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:freezesText="true"
-            android:textColor="@color/colorBlack"
             android:text="@string/press_the_button_below_to_start_a_request"
+            android:textColor="@color/colorBlack"
             android:textSize="@dimen/test_size_20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,24 +58,24 @@
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/colorAccent"
-            app:cornerRadius="@dimen/grid_8"
             android:layout_marginTop="@dimen/grid_16"
-            app:layout_constraintTop_toBottomOf="@id/textView"
+            android:background="@color/colorAccent"
             android:onClick="@{() -> presenter.dispatchTakePictureIntent()}"
-            android:text="@string/take_picture" />
+            android:text="@string/take_picture"
+            app:cornerRadius="@dimen/grid_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
 
         <TextView
             android:id="@+id/tvCarModel"
             android:layout_width="wrap_content"
-            android:text="Model: "
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/grid_16"
             android:layout_marginTop="@dimen/grid_16"
-            app:layout_constraintTop_toBottomOf="@id/button"
-            android:layout_height="wrap_content"/>
+            android:text="Model: "
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button" />
 
         <TextView
             android:id="@+id/tvCarYear"
@@ -73,7 +85,7 @@
             android:layout_marginTop="@dimen/grid_16"
             android:text="Year: "
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCarModel"/>
+            app:layout_constraintTop_toBottomOf="@id/tvCarModel" />
 
         <TextView
             android:id="@+id/tvCarRegion"
@@ -83,19 +95,18 @@
             android:layout_marginTop="@dimen/grid_16"
             android:text="Is stolen "
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCarYear"/>
+            app:layout_constraintTop_toBottomOf="@id/tvCarYear" />
 
 
         <ImageView
             android:id="@+id/carDBImage"
             android:layout_width="@dimen/grid_400"
             android:layout_height="@dimen/grid_250"
+            android:layout_marginTop="@dimen/grid_24"
+            android:contentDescription="@string/home_fragment_image_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/grid_24"
-            app:layout_constraintTop_toBottomOf="@id/tvCarRegion"
-            android:contentDescription="@string/home_fragment_image_description" />
-
+            app:layout_constraintTop_toBottomOf="@id/tvCarRegion" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
