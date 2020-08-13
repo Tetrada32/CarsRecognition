@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textInputHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout"
+        tools:text="This is a hint text" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -12,11 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/grid_16"
         android:layout_marginEnd="@dimen/grid_16"
+        app:boxStrokeWidthFocused="1dp"
         app:errorEnabled="true"
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textInputHint">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInput"
@@ -27,8 +36,8 @@
             android:textStyle="bold"
             android:background="@android:color/transparent"
             android:padding="@dimen/grid_0"
-            android:textAlignment="center"
-            android:textSize="30sp" />
+            android:textAlignment="textStart"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,7 @@ class EditTextInputLayout @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
+    private var hint: String = ""
     private var subHint: String = ""
     private var text: String? = null
     private var maxLines = 1
@@ -35,6 +36,7 @@ class EditTextInputLayout @JvmOverloads constructor(
 
     private fun initTypedArray(context: Context, attrs: AttributeSet?) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.EditTextInputLayout)
+        hint = typedArray.getString(R.styleable.EditTextInputLayout_hint) ?: hint
         subHint = typedArray.getString(R.styleable.EditTextInputLayout_subHint) ?: subHint
         inputType = typedArray.getInt(R.styleable.EditTextInputLayout_android_inputType, inputType)
         imeOptions =
@@ -61,11 +63,17 @@ class EditTextInputLayout @JvmOverloads constructor(
     }
 
     private fun displayData() {
+        setHint(hint)
         setSubHint(subHint)
         setInputType(inputType)
         setImeOptions(imeOptions)
         setText(text)
         setMaxLines(maxLines)
+    }
+
+    fun setHint(hint: String) {
+        this.hint = hint
+        textInputHint.text = hint
     }
 
     fun setSubHint(hint: String) {

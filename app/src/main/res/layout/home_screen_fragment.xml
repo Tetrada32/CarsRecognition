@@ -23,15 +23,15 @@
         <com.car_plate.car_plate_recognition.app.util.text.input.EditTextInputLayout
             android:id="@+id/numberInput"
             android:layout_width="@dimen/grid_0"
-            android:layout_height="80dp"
-            android:layout_marginTop="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_24"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            app:layout_constraintBottom_toTopOf="@id/imageView"
+            app:hint="Car plate"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/imageView"
