@@ -5,8 +5,11 @@ import android.content.Context
 import android.net.Uri
 import android.os.Environment
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.MutableLiveData
 import com.car_plate.car_plate_recognition.app.arch.BaseCoroutinesViewModel
+import com.car_plate.car_plate_recognition.app.arch.SingleLiveEvent
 import com.car_plate.car_plate_recognition.app.util.Constants
 import com.car_plate.domain.usecase.carplate.GetCarInfoUseCase
 import com.car_plate.domain.usecase.carplate.GetCarParams
@@ -24,9 +27,25 @@ class HomeViewModel : BaseCoroutinesViewModel(), KoinComponent {
 
     private val getCarInfoUseCase: GetCarInfoUseCase by inject()
 
+    private val _errorEvent by lazy { SingleLiveEvent<Throwable>() }
+    val errorEvent: LiveData<Throwable>
+        get() = _errorEvent
+
+    private val _isLoading by lazy { MutableLiveData(false) }
+    val isLoading: LiveData<Boolean>
+        get() = _isLoading
+
     val recognitionResult = MutableLiveData<String>()
 
     val carData = getCarInfoUseCase.carSuccess
+
+    private val getCarInfoFailedObserver: Observer<Throwable> = Observer {
+        onError(it)
+    }
+
+    init {
+        getCarInfoUseCase.carError.observeForever(getCarInfoFailedObserver)
+    }
 
     fun processImage(context: Context, photoUri: Uri) {
 
@@ -38,14 +57,13 @@ class HomeViewModel : BaseCoroutinesViewModel(), KoinComponent {
                 processResultText(firebaseVisionText)
             }
             .addOnFailureListener {
-                recognitionResult.postValue("Error!")
+                onError(Throwable(message = "Ошибка обработки изображения"))
             }
     }
 
-
     private fun processResultText(resultText: FirebaseVisionText) {
         if (resultText.textBlocks.size == 0) {
-            recognitionResult.postValue("Error!")
+            onError(Throwable(message = "Ошибка обработки текста"))
             return
         }
         for (block in resultText.textBlocks) {
@@ -64,16 +82,11 @@ class HomeViewModel : BaseCoroutinesViewModel(), KoinComponent {
                         recognitionResult.postValue(carPlate)
                         getCarInfoByPlateNumber(carPlate)
                     } else {
-                        recognitionResult.postValue("ERROR!")
+                        recognitionResult.postValue("На сервер был отправлен некорректный номер автомобиля!")
                     }
                 }
             }
         }
-    }
-
-    fun searchCarByText(carPlate: String) {
-        if (carPlate.length == 8)
-        getCarInfoByPlateNumber(carPlate)
     }
 
     @SuppressLint("SimpleDateFormat")
@@ -89,7 +102,18 @@ class HomeViewModel : BaseCoroutinesViewModel(), KoinComponent {
         }
     }
 
-    private fun getCarInfoByPlateNumber(carPlate: String) {
+    fun getCarInfoByPlateNumber(carPlate: String) {
+        if (carPlate.length == 8)
         getCarInfoUseCase.execute(GetCarParams(carPlate))
+    }
+
+    private fun onError(throwable: Throwable) {
+        _errorEvent.value = throwable
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+
+        getCarInfoUseCase.carError.removeObserver(getCarInfoFailedObserver)
     }
 }

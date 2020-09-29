@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.car_plate.car_plate_recognition.app.ui.home.HomeViewModel" />
@@ -29,6 +31,7 @@
                 android:id="@+id/numberInputLayout"
                 android:layout_width="291dp"
                 android:layout_height="61dp"
+                android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
                 android:layout_marginTop="@dimen/grid_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,9 +102,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/grid_16"
                 android:layout_marginTop="@dimen/grid_16"
-                tools:text="Model: "
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/buttonMakePicture" />
+                app:layout_constraintTop_toBottomOf="@id/buttonMakePicture"
+                tools:text="Model: " />
 
             <TextView
                 android:id="@+id/tvCarYear"
@@ -109,9 +112,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/grid_16"
                 android:layout_marginTop="@dimen/grid_16"
-                tools:text="Year: "
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCarModel" />
+                app:layout_constraintTop_toBottomOf="@id/tvCarModel"
+                tools:text="Year: " />
 
             <TextView
                 android:id="@+id/tvCarRegion"
@@ -119,19 +122,29 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/grid_16"
                 android:layout_marginTop="@dimen/grid_16"
-                tools:text="Region: "
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvCarYear" />
+                app:layout_constraintTop_toBottomOf="@id/tvCarYear"
+                tools:text="Region: " />
 
             <TextView
-            android:id="@+id/tvCarIsStolen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/grid_16"
-            android:layout_marginTop="@dimen/grid_16"
-            tools:text="Is stolen: "
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvCarRegion" />
+                android:id="@+id/tvCarIsStolen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/grid_16"
+                android:layout_marginTop="@dimen/grid_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCarRegion"
+                tools:text="Is stolen: " />
+
+            <ProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

@@ -55,6 +55,7 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
 
     override fun setSubscribers() {
         viewModel.recognitionResult.observe(viewLifecycleOwner, Observer { setRecognitionResult(it) })
+        viewModel.errorEvent.observe(viewLifecycleOwner, Observer { showError(it.message.toString()) })
         viewModel.carData.observe(viewLifecycleOwner, Observer { showCarResult(it) })
     }
 
@@ -120,7 +121,7 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
     }
 
     fun searchByText() {
-        viewModel.searchCarByText(binding.numberInput.text.toString())
+        viewModel.getCarInfoByPlateNumber(binding.numberInput.text.toString())
     }
 
     private fun ifIsStolen(isStolen: Boolean) : String {
