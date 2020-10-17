@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
+import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
 import com.car_plate.car_plate_recognition.R
@@ -19,7 +20,17 @@ import com.car_plate.car_plate_recognition.app.util.extensions.toast
 import com.car_plate.car_plate_recognition.databinding.HomeScreenFragmentBinding
 import com.car_plate.domain.entity.Car
 import org.koin.android.ext.android.inject
+import java.io.BufferedReader
 import java.io.File
+import java.io.InputStreamReader
+import java.net.MalformedURLException
+import java.net.URL
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
+import org.jsoup.select.Elements
 import java.io.IOException
 
 class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
@@ -46,6 +57,8 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
     override fun onResume() {
         super.onResume()
         binding.presenter = this
+
+//        getHtmlFromWeb()
     }
 
     override fun onPause() {
@@ -54,8 +67,12 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
     }
 
     override fun setSubscribers() {
-        viewModel.recognitionResult.observe(viewLifecycleOwner, Observer { setRecognitionResult(it) })
-        viewModel.errorEvent.observe(viewLifecycleOwner, Observer { showError(it.message.toString()) })
+        viewModel.recognitionResult.observe(
+            viewLifecycleOwner,
+            Observer { setRecognitionResult(it) })
+        viewModel.errorEvent.observe(
+            viewLifecycleOwner,
+            Observer { showError(it.message.toString()) })
         viewModel.carData.observe(viewLifecycleOwner, Observer { showCarResult(it) })
     }
 
@@ -69,9 +86,9 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
     }
 
     override fun onActivityResult(
-            requestCode: Int,
-            resultCode: Int,
-            data: Intent?
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
     ) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -100,7 +117,8 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
                 // Continue only if the File was successfully created
                 destination?.also {
                     val photoURI: Uri = FileProvider.getUriForFile(
-                            saveContext, AUTHORITY, it)
+                        saveContext, AUTHORITY, it
+                    )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE)
                 }
@@ -124,11 +142,33 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
         viewModel.getCarInfoByPlateNumber(binding.numberInput.text.toString())
     }
 
-    private fun ifIsStolen(isStolen: Boolean) : String {
+    private fun ifIsStolen(isStolen: Boolean): String {
         return if (isStolen) {
             "Угон: Числится в угоне"
         } else {
             "Угон: Не числится в угоне"
         }
+    }
+
+    private fun getHtmlFromWeb() {
+        Thread(Runnable {
+            val stringBuilder = StringBuilder()
+            try {
+                val doc: Document =
+                    Jsoup.connect("https://policy-web.mtsbu.ua/Search/ByRegNo?md=8FA7EADE99CE3A087D705E42954E4AC26F94B62D6F53B19EA9C5751A6F5FB24DBD928BF82E42744FDE4D0028C0735B992408672402DC5457DBD45310F1E41C26")
+                        .get()
+                val title: String = doc.title()
+                val links: Elements = doc.select("a[href]")
+                stringBuilder.append(title).append("\n")
+                for (link in links) {
+                    stringBuilder.append("\n").append(link.text())
+                }
+            } catch (e: IOException) {
+                stringBuilder.append("Error : ").append(e.message).append("\n")
+            }
+            activity?.runOnUiThread {
+                Toast.makeText(context, stringBuilder.toString(), Toast.LENGTH_LONG).show()
+            }
+        }).start()
     }
 }

@@ -96,4 +96,8 @@ dependencies {
     implementation androidLibs.insetterBinding
     implementation androidLibs.insetterKotlin
 
+
+    //TODO temp
+    implementation 'org.jsoup:jsoup:1.11.2'
+
 }
