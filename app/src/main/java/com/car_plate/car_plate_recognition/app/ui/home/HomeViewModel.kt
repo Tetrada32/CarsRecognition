@@ -38,7 +38,7 @@ class HomeViewModel : BaseCoroutinesViewModel(), KoinComponent {
                 processResultText(firebaseVisionText)
             }
             .addOnFailureListener {
-                recognitionResult.postValue("Error!")
+                recognitionResult.postValue("Error! ")
             }
     }
 
