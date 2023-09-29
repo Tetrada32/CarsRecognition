@@ -1,5 +1,6 @@
 package com.gahov.car_plate_recognition.app.ui.home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -80,6 +81,7 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
         viewModel.recognizePlateNumber(saveContext, androidDataDir, destination)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setRecognitionResult(result: String) {
         try {
             val results: Results? = Gson().fromJson(result, Results::class.java)
@@ -89,12 +91,12 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
                 } else {
                     binding.textView.text =
                         (getString(R.string.plate_text)
-                            + results?.results?.get(0)?.plate
-                            + getString(R.string.confidence_text)
-                            + String.format(FLOAT, results?.results?.get(0)?.confidence)
-                            + getString(R.string.persent))
-                     }
-                 }
+                                + results?.results?.get(0)?.plate
+                                + getString(R.string.confidence_text)
+                                + String.format(FLOAT, results?.results?.get(0)?.confidence)
+                                + getString(R.string.persent))
+                }
+            }
 
         } catch (exception: JsonSyntaxException) {
             val resultsError: ResultsError = Gson().fromJson(result, ResultsError::class.java)
@@ -128,7 +130,8 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding>() {
                 // Continue only if the File was successfully created
                 destination?.also {
                     val photoURI: Uri = FileProvider.getUriForFile(
-                        saveContext, AUTHORITY, it)
+                        saveContext, AUTHORITY, it
+                    )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE)
                 }
