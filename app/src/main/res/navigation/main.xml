@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.car_plate.car_plate_recognition.app.ui.home.HomeFragment"
+        android:name="com.gahov.plates_recognition.feature.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/home_screen_fragment">
 

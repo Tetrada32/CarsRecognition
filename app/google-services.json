@@ -1,45 +1,26 @@
 {
   "project_info": {
-    "project_number": "147735567755",
-    "firebase_url": "https://simplecarinfo-6481c.firebaseio.com",
-    "project_id": "simplecarinfo-6481c",
-    "storage_bucket": "simplecarinfo-6481c.appspot.com"
+    "project_number": "250083155464",
+    "project_id": "carplaterecognition-506ff",
+    "storage_bucket": "carplaterecognition-506ff.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:147735567755:android:a2156b850847b63b37638e",
+        "mobilesdk_app_id": "1:250083155464:android:cd1f9aeb2e6831cd47bbbd",
         "android_client_info": {
-          "package_name": "com.gahov.car_plate_recognition"
+          "package_name": "com.gahov.plates_recognition"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "147735567755-t6lul4sb4k8f7ddkscudb2365473vt4r.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.gahov.car_plate_recognition",
-            "certificate_hash": "a57051c89d5ffea5b73280c80b92095f137571b0"
-          }
-        },
-        {
-          "client_id": "147735567755-hg9nm4ghgrj8vkipfcunilfnkc7ptb80.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAU8ETxRVP1QTx0l1xKPgKWFVvI6vXAGxU"
+          "current_key": "AIzaSyAnG52i-VvC2kmWk3L9SbdRlqh0eDhwoXI"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "147735567755-hg9nm4ghgrj8vkipfcunilfnkc7ptb80.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
