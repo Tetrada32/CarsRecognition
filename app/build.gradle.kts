@@ -53,6 +53,15 @@ android {
     kapt {
         correctErrorTypes = true
     }
+
+    applicationVariants.all {
+        outputs
+            .map { it as com.android.build.gradle.internal.api.ApkVariantOutputImpl }
+            .all { output ->
+                output.outputFileName = "CarsRecognition.apk"
+                false
+            }
+    }
 }
 
 dependencies {
