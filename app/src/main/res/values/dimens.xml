@@ -1,9 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="grid_0">0dp</dimen>
+    <dimen name="grid_1">1dp</dimen>
+    <dimen name="grid_2">2dp</dimen>
+    <dimen name="grid_3">3dp</dimen>
+    <dimen name="grid_5">5dp</dimen>
+    <dimen name="grid_6">6dp</dimen>
+    <dimen name="grid_7">7dp</dimen>
     <dimen name="grid_8">8dp</dimen>
+    <dimen name="grid_10">10dp</dimen>
     <dimen name="grid_16">16dp</dimen>
+    <dimen name="grid_19">19dp</dimen>
+    <dimen name="grid_20">20dp</dimen>
+    <dimen name="grid_21">21dp</dimen>
+    <dimen name="grid_23">23dp</dimen>
+    <dimen name="grid_24">24dp</dimen>
+    <dimen name="grid_25">25dp</dimen>
+    <dimen name="grid_26">26dp</dimen>
+    <dimen name="grid_28">28dp</dimen>
+    <dimen name="grid_29">29dp</dimen>
+    <dimen name="grid_30">30dp</dimen>
+    <dimen name="grid_32">32dp</dimen>
+    <dimen name="grid_35">35dp</dimen>
+    <dimen name="grid_37">37dp</dimen>
+    <dimen name="grid_40">40dp</dimen>
+    <dimen name="grid_48">48dp</dimen>
+    <dimen name="grid_50">50dp</dimen>
+    <dimen name="grid_56">56dp</dimen>
+    <dimen name="grid_61">61dp</dimen>
+    <dimen name="grid_64">64dp</dimen>
+    <dimen name="grid_65">65dp</dimen>
+    <dimen name="grid_66">66dp</dimen>
+    <dimen name="grid_72">72dp</dimen>
+    <dimen name="grid_77">77dp</dimen>
+    <dimen name="grid_80">80dp</dimen>
+    <dimen name="grid_84">84dp</dimen>
+    <dimen name="grid_90">90dp</dimen>
+    <dimen name="grid_91">91dp</dimen>
+    <dimen name="grid_98">98dp</dimen>
+    <dimen name="grid_100">100dp</dimen>
+    <dimen name="grid_120">120dp</dimen>
+    <dimen name="grid_130">130dp</dimen>
+    <dimen name="grid_150">150dp</dimen>
+    <dimen name="grid_161">161dp</dimen>
     <dimen name="grid_200">200dp</dimen>
+    <dimen name="grid_250">250dp</dimen>
+    <dimen name="grid_255">255dp</dimen>
+    <dimen name="grid_280">280dp</dimen>
+    <dimen name="grid_300">300dp</dimen>
+    <dimen name="grid_350">350dp</dimen>
+    <dimen name="grid_400">400dp</dimen>
+    <dimen name="grid_500">500dp</dimen>
 
-    <dimen name="test_size_20">20sp</dimen>
+    <dimen name="text_size_h1">30sp</dimen>
+    <dimen name="text_size_h2">23.5sp</dimen>
+    <dimen name="text_size_h2.5">20sp</dimen>
+    <dimen name="text_size_h3">16sp</dimen>
+    <dimen name="text_size_h4">14sp</dimen>
+    <dimen name="text_size_h5">12sp</dimen>
 
 </resources>

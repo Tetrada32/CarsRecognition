@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.gahov.car_plate_recognition.app.ui.main.MainViewModel" />
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainActivity">
+        tools:context=".feature.main.MainActivity">
+
+        <include layout="@layout/bg_general" />
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/mainHostNavFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:id="@+id/mainNavHost"
             android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:translationZ="@dimen/grid_1"
             app:defaultNavHost="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navGraph="@navigation/main"
-            tools:visibility="gone" />
+            app:navGraph="@navigation/main" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
