@@ -5,6 +5,11 @@
     <string name="carsSelectorScreenTitle">Мої авто</string>
     <string name="button_add_car">Додати авто</string>
     <string name="searchScreenInstructions">Щоб здійснити пошук, введіть номер автомобіля, або зробіть чітке фото номерного знаку.</string>
+    <string name="field_car_search_date">Інформація про автомобіль зареєсртований за номером %1$s отримано о\n%2$s</string>
+    <string name="field_car_last_registration_date">Остання рееєстрація: %1$s</string>
+    <string name="field_car_last_registration_date_not_found">Дані щодо рееєстрації невідомі.</string>
+    <string name="carIsNotStolen">Автомобіль не перебуває в розшуку</string>
+    <string name="carIsStolen">Автомобіль в розшуку! Викликайте поліцію!</string>
 
 <!--    Home fragment -->
     <string name="take_picture">Take Picture</string>

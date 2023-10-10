@@ -1,5 +1,6 @@
 package com.gahov.plates_recognition.arch.di.module
 
+import android.content.Context
 import com.gahov.plates_recognition.feature.selector.factory.CarEntityBuilder
 import com.gahov.plates_recognition.feature.selector.factory.CarListToCarModelBuilder
 import dagger.Module
@@ -14,5 +15,6 @@ class EntityBuilderModule {
 
     @Provides
     @Reusable
-    internal fun provideWeatherEntityBuilder(): CarEntityBuilder = CarListToCarModelBuilder()
+    internal fun provideWeatherEntityBuilder(context: Context): CarEntityBuilder =
+        CarListToCarModelBuilder(context)
 }

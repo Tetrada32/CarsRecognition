@@ -54,13 +54,13 @@
                 android:layout_height="match_parent">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/carDetailsCityName"
+                    android:id="@+id/carDetailsDigits"
                     style="@style/TextAppearance.PlanRadarWeather.Headline"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/grid_25"
                     android:gravity="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorGrey"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -68,17 +68,78 @@
                     tools:text="KA2302BM" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/carDetailsIcon"
+                    android:id="@+id/carDetailsImage"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/grid_200"
-                    android:scaleType="centerCrop"
-                    android:layout_marginTop="@dimen/grid_25"
-                    app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginHorizontal="@dimen/grid_25"
+                    android:layout_marginTop="@dimen/grid_25"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/carDetailsCityName"
+                    app:layout_constraintTop_toBottomOf="@id/carDetailsDigits"
                     app:setImage="@{car.photoUrl}"
                     tools:src="@drawable/toyota_corolla_demo" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/carDetailsName"
+                    style="@style/TextAppearance.PlanRadarWeather.Headline2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/grid_16"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carDetailsImage"
+                    app:setText="@{car.carName}"
+                    tools:text="Toyota COROLLA" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/carDetailsCityAndYear"
+                    style="@style/TextAppearance.PlanRadarWeather.Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/grid_5"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_h3"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carDetailsName"
+                    app:setText="@{car.cityAndYear}"
+                    tools:text="Києв, 2022" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/carRegistrationDate"
+                    style="@style/TextAppearance.PlanRadarWeather.Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/grid_5"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/carDetailsCityAndYear"
+                    app:setText="@{car.lastRegistrationDate}"
+                    tools:text="Остання рееєстрація: 3.10.2022" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/carDetailsStolenData"
+                    style="@style/TextAppearance.PlanRadarWeather.Text.Small"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/grid_20"
+                    android:layout_marginTop="@dimen/grid_5"
+                    android:gravity="center"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="@dimen/text_size_h5"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:setText="@{car.stolenData}"
+                    tools:text="Автомобіль не перебуває в розшуку" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -103,6 +164,7 @@
             android:layout_marginBottom="@dimen/grid_23"
             android:gravity="center"
             android:maxLines="2"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

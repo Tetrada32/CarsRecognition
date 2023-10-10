@@ -28,7 +28,7 @@ class CarDomainToLocalMapper : DbMapper<CarEntity, CarDTO> {
            model = domainModel.model,
            city = domainModel.cityName,
            lastRegistrationDate = domainModel.lastRegistrationDate,
-           searchTime = ""
+           searchTime = domainModel.searchDate
        )
     }
 
@@ -43,7 +43,8 @@ class CarDomainToLocalMapper : DbMapper<CarEntity, CarDTO> {
             cityName = dbModel.city,
             lastRegistrationDate = dbModel.lastRegistrationDate,
             operations = emptyList(),
-            region = null
+            region = null,
+            searchDate = dbModel.searchTime
         )
     }
 }

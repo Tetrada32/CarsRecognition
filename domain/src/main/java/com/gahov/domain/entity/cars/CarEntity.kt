@@ -12,5 +12,6 @@ data class CarEntity(
     var region: Region? = null,
     var cityName: String? = null,
     val lastRegistrationDate: String? = null,
-    var operations: List<Operations?>? = null
+    var operations: List<Operations?>? = null,
+    var searchDate: String? = null
 ) : Serializable

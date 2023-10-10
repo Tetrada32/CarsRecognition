@@ -3,10 +3,10 @@ package com.gahov.data.mapper.car
 import com.gahov.data.entity.car.ApiCar
 import com.gahov.data.exceptions.InvalidResponseException
 import com.gahov.data.mapper.common.ApiMapper
+import com.gahov.data.util.DateUtil.formatCurrentTime
 import com.gahov.domain.entity.cars.CarEntity
 import com.gahov.domain.entity.cars.Operations
 import com.gahov.domain.entity.cars.Region
-
 
 
 /**
@@ -60,7 +60,8 @@ class CarResponseToDomainMapper : ApiMapper<ApiCar, CarEntity> {
             model = model,
             region = region,
             lastRegistrationDate = mOperations.last().registrationDate,
-            operations = mOperations
+            operations = mOperations,
+            searchDate = formatCurrentTime()
         )
     }
 }

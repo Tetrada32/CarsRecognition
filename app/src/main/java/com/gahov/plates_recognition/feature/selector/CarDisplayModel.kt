@@ -16,13 +16,16 @@ data class CarDisplayModel(
     var brand: TextProvider? = null,
     var digits: TextProvider? = null,
     var cityName: TextProvider? = null,
+    var cityAndYear: TextProvider? = null,
     var model: TextProvider? = null,
     var infoDate: TextProvider? = null,
     var operations: List<Operations?>? = null,
     var carName: TextProvider? = null,
-    val lastRegistrationDate: TextProvider? = null,
-    val carIcon: IconProvider = IconProvider.ResIcon(R.drawable.ic_car),
-    val historyIcon: IconProvider = IconProvider.ResIcon(R.drawable.ic_info)
+    var lastRegistrationDate: TextProvider? = null,
+    var stolenData: TextProvider? = null,
+    var carIcon: IconProvider = IconProvider.ResIcon(R.drawable.ic_car),
+    var historyIcon: IconProvider = IconProvider.ResIcon(R.drawable.ic_info)
+
 ) : Serializable {
 
     fun getCarDigits(): String {
