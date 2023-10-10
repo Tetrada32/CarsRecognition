@@ -1,6 +1,6 @@
 <resources>
 <!--    General -->
-    <string name="app_name">car_plate_recognition</string>
+    <string name="app_name">Cars Recognition</string>
 
     <string name="carsSelectorScreenTitle">Мої авто</string>
     <string name="button_add_car">Додати авто</string>
