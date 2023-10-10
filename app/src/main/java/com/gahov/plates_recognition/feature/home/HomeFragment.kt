@@ -6,10 +6,10 @@ import android.net.Uri
 import android.os.Handler
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
-import com.gahov.domain.entity.cars.Car
+import com.gahov.domain.entity.cars.CarEntity
 import com.gahov.plates_recognition.R
-import com.gahov.plates_recognition.app.arch.ui.fragment.BaseFragment
-import com.gahov.plates_recognition.app.common.extensions.loadImage
+import com.gahov.plates_recognition.arch.ui.fragment.BaseFragment
+import com.gahov.plates_recognition.common.extensions.loadImage
 import com.gahov.plates_recognition.databinding.HomeScreenFragmentBinding
 import com.gahov.plates_recognition.feature.home.HomeViewModel.Companion.AUTHORITY
 import com.gahov.plates_recognition.feature.home.HomeViewModel.Companion.REQUEST_IMAGE
@@ -41,7 +41,7 @@ class HomeFragment : BaseFragment<HomeScreenFragmentBinding, HomeViewModel>(
     }
 
     @SuppressLint("SetTextI18n")
-    private fun showCarResult(car: Car) {
+    private fun showCarResult(car: CarEntity) {
         binding.tvCarModel.text = getString(R.string.model) + car.vendor + " " + car.model
         binding.tvCarYear.text = getString(R.string.year) + car.year
         binding.tvCarRegion.text = getString(R.string.region) + car.region

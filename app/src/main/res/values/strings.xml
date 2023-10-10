@@ -1,6 +1,10 @@
 <resources>
 <!--    General -->
     <string name="app_name">car_plate_recognition</string>
+
+    <string name="carsSelectorScreenTitle">Мої авто</string>
+    <string name="button_add_city">Додати авто</string>
+
 <!--    Home fragment -->
     <string name="take_picture">Take Picture</string>
     <string name="processing">Processing</string>
@@ -18,4 +22,6 @@
     <string name="year">\"Год: \"</string>
     <string name="isStolen">\"В угоне: \"</string>
     <string name="region">\"Регион: \"</string>
+
+
 </resources>

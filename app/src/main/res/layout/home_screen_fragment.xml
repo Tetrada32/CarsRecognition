@@ -51,7 +51,7 @@
                     android:paddingStart="@dimen/grid_10"
                     android:textAlignment="center"
                     android:textAllCaps="true"
-                    android:textColorHint="@color/colorGray"
+                    android:textColorHint="@color/colorGrey"
                     android:textSize="35sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"

@@ -3,8 +3,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/homeFragment"
+    app:startDestination="@id/fragmentCarSelector"
     tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/fragmentCarSelector"
+        android:name="com.gahov.plates_recognition.feature.selector.CarSelectorFragment"
+        tools:layout="@layout/fragment_car_selector">
+
+        <action
+            android:id="@+id/actionCarSelectorToCarSearch"
+            app:destination="@id/fragmentCarSearch"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/fragmentCarSelector" />
+
+        <action
+            android:id="@+id/actionCarSelectorToCarDetails"
+            app:destination="@id/fragmentCarDetails"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/fragmentCarSelector" />
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/fragmentCarSearch"
+        android:name="com.gahov.plates_recognition.feature.search.CarSearchBottomDialogFragment"
+        tools:layout="@layout/fragment_car_search">
+
+        <action
+            android:id="@+id/actionCarSearchToCarDetails"
+            app:destination="@id/fragmentCarDetails"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/fragmentCarSelector" />
+
+    </dialog>
+
+    <fragment
+        android:id="@+id/fragmentCarDetails"
+        android:name="com.gahov.plates_recognition.feature.details.CarDetailsFragment"
+        tools:layout="@layout/fragment_car_details">
+
+        <argument
+            android:name="carData"
+            app:argType="com.gahov.domain.entity.cars.CarEntity"
+            app:nullable="true" />
+
+        <argument
+            android:name="carDigits"
+            android:defaultValue=""
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/homeFragment"

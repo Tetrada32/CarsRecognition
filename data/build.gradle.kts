@@ -59,7 +59,7 @@ dependencies {
         kapt("com.google.dagger:hilt-android-compiler:2.47")
 
         implementation("androidx.room:room-runtime:2.5.2")
-        annotationProcessor ("androidx.room:room-compiler:2.5.2")
+        kapt ("androidx.room:room-compiler:2.5.2")
 
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
         implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")

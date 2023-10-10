@@ -79,6 +79,7 @@ dependencies {
     implementation("com.google.firebase:firebase-crashlytics-ktx")
     implementation("com.google.firebase:firebase-ml-vision:24.1.0")
     implementation("com.google.android.gms:play-services-vision:20.1.3")
+    implementation("androidx.room:room-ktx:2.5.2")
 
     kapt("com.google.dagger:hilt-android-compiler:2.47")
 

@@ -1,7 +1,7 @@
 package com.gahov.data.local.storage.authorization
 
 import android.content.SharedPreferences
-import com.gahov.data.mapper.common.BasePreferences
+import com.gahov.data.local.source.BasePreferences
 
 /** An implementation of the [AuthorizationLocalStorage] interface for managing access token storage
  *  using SharedPreferences.

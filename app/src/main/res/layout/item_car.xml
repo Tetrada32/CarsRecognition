@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="presenter"
+            type="com.gahov.plates_recognition.feature.selector.presenter.CarSelectorPresenter" />
+
+        <variable
+            name="car"
+            type="com.gahov.plates_recognition.feature.selector.CarDisplayModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/grid_66">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/itemCarImage"
+            android:layout_width="@dimen/grid_28"
+            android:layout_height="@dimen/grid_28"
+            android:layout_marginHorizontal="@dimen/grid_19"
+            android:onClick="@{() -> presenter.onCarItemClick(car.getCarDigits())}"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_car"
+            app:setImage="@{car.photoUrl}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/itemCarDigits"
+            style="@style/TextAppearance.PlanRadarWeather.Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/grid_37"
+            android:onClick="@{() -> presenter.onCarItemClick(car.getCarDigits())}"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/itemCarDetailsIcon"
+            app:layout_constraintStart_toEndOf="@id/itemCarImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setText="@{car.digits}"
+            tools:text="Toyota Corolla" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/itemCarDetailsIcon"
+            android:layout_width="@dimen/grid_28"
+            android:layout_height="@dimen/grid_28"
+            android:layout_marginHorizontal="@dimen/grid_19"
+            android:onClick="@{() -> presenter.onCarHistoryButtonClick(car.getCarDigits())}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/itemCarDigits"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setImage="@{car.historyIcon}"
+            tools:src="@drawable/ic_info" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
