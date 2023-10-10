@@ -3,7 +3,8 @@
     <string name="app_name">car_plate_recognition</string>
 
     <string name="carsSelectorScreenTitle">Мої авто</string>
-    <string name="button_add_city">Додати авто</string>
+    <string name="button_add_car">Додати авто</string>
+    <string name="searchScreenInstructions">Щоб здійснити пошук, введіть номер автомобіля, або зробіть чітке фото номерного знаку.</string>
 
 <!--    Home fragment -->
     <string name="take_picture">Take Picture</string>
@@ -22,6 +23,7 @@
     <string name="year">\"Год: \"</string>
     <string name="isStolen">\"В угоне: \"</string>
     <string name="region">\"Регион: \"</string>
+    <string name="take_photo">Зробити фото</string>
 
 
 </resources>

@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.gahov.plates_recognition.arch.di.ViewModelFactory
 import com.gahov.plates_recognition.arch.di.ViewModelKey
 import com.gahov.plates_recognition.feature.details.CarDetailsViewModel
-import com.gahov.plates_recognition.feature.home.HomeViewModel
 import com.gahov.plates_recognition.feature.search.CarSearchViewModel
 import com.gahov.plates_recognition.feature.selector.CarSelectorViewModel
 import dagger.Binds
@@ -35,9 +34,4 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CarDetailsViewModel::class)
     abstract fun bindCarDetailsViewModel(viewModel: CarDetailsViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(HomeViewModel::class)
-    abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
 }

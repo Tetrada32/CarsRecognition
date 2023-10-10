@@ -17,47 +17,76 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/grid_66">
+        android:layout_height="@dimen/grid_150"
+        android:onClick="@{() -> presenter.onCarItemClick(car.getCarDigits())}">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/itemCarImage"
-            android:layout_width="@dimen/grid_28"
-            android:layout_height="@dimen/grid_28"
+            android:layout_width="@dimen/grid_161"
+            android:layout_height="@dimen/grid_120"
             android:layout_marginHorizontal="@dimen/grid_19"
-            android:onClick="@{() -> presenter.onCarItemClick(car.getCarDigits())}"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_car"
-            app:setImage="@{car.photoUrl}" />
+            app:setImage="@{car.photoUrl}"
+            tools:src="@drawable/ic_car" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/itemCarDigits"
-            style="@style/TextAppearance.PlanRadarWeather.Subtitle"
+            style="@style/TextAppearance.PlanRadarWeather.Headline2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/grid_37"
-            android:onClick="@{() -> presenter.onCarItemClick(car.getCarDigits())}"
+            android:layout_marginTop="@dimen/grid_24"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_size_h2.5"
             android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/itemCarDetailsIcon"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/itemCarImage"
             app:layout_constraintTop_toTopOf="parent"
             app:setText="@{car.digits}"
+            tools:text="KA2543BM" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/itemCarName"
+            style="@style/TextAppearance.PlanRadarWeather.Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/itemCarYear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/itemCarImage"
+            app:layout_constraintTop_toBottomOf="@id/itemCarDigits"
+            app:setText="@{car.carName}"
             tools:text="Toyota Corolla" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/itemCarDetailsIcon"
-            android:layout_width="@dimen/grid_28"
-            android:layout_height="@dimen/grid_28"
-            android:layout_marginHorizontal="@dimen/grid_19"
-            android:onClick="@{() -> presenter.onCarHistoryButtonClick(car.getCarDigits())}"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/itemCarYear"
+            style="@style/TextAppearance.PlanRadarWeather.Subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/grid_35"
+            android:gravity="center"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/itemCarDigits"
-            app:layout_constraintTop_toTopOf="parent"
-            app:setImage="@{car.historyIcon}"
-            tools:src="@drawable/ic_info" />
+            app:layout_constraintStart_toEndOf="@id/itemCarImage"
+            app:setText="@{car.year}"
+            tools:text="2023" />
+
+        <View
+            android:id="@+id/itemCarDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorLightGrey"
+            android:paddingBottom="@dimen/grid_10"
+            android:layout_marginTop="@dimen/grid_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="@dimen/grid_19"
+            app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

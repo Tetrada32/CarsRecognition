@@ -27,8 +27,13 @@ class CarListToCarModelBuilder : CarEntityBuilder {
                 brand = TextProvider.Text(it.vendor.toString()),
                 model = TextProvider.Text(it.model.toString()),
                 operations = it.operations,
-                lastRegistrationDate = TextProvider.Text(it.operations?.last()?.registrationDate.toString())
+                lastRegistrationDate = TextProvider.Text(""),
+                carName = TextProvider.Text(it.getCarName())
             )
-        }.distinctBy { it.cityName }
+        }.distinctBy { it.digits }
+    }
+
+    private fun CarEntity.getCarName(): String {
+        return "$vendor $model"
     }
 }

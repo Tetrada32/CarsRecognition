@@ -52,11 +52,9 @@
     <dimen name="grid_400">400dp</dimen>
     <dimen name="grid_500">500dp</dimen>
 
-    <dimen name="test_size_20">20sp</dimen>
-    <dimen name="test_size_25">25sp</dimen>
-
-    <dimen name="text_size_h1">28sp</dimen>
+    <dimen name="text_size_h1">30sp</dimen>
     <dimen name="text_size_h2">23.5sp</dimen>
+    <dimen name="text_size_h2.5">20sp</dimen>
     <dimen name="text_size_h3">16sp</dimen>
     <dimen name="text_size_h4">14sp</dimen>
 

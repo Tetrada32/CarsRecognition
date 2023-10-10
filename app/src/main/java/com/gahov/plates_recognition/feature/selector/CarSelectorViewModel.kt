@@ -22,7 +22,7 @@ class CarSelectorViewModel @Inject constructor(
         launch(Dispatchers.IO) {
             when (val result = getLocalCarInfoUseCase.execute()) {
                 is Either.Right -> processResult(result.success)
-                is Either.Left -> error(result.failure)
+                is Either.Left -> handleFailure(result.failure)
             }
         }
     }

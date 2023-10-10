@@ -8,5 +8,6 @@
     <color name="colorSecondary">#1E7AB2</color>
 
     <color name="colorGrey">#3D4548</color>
+    <color name="colorLightGrey">#D3D3D3</color>
     <color name="colorStrokeGrey">#FFE9E9E9</color>
 </resources>

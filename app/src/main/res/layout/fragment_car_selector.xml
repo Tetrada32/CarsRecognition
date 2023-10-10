@@ -119,7 +119,7 @@
             android:layout_margin="@dimen/grid_19"
             android:fontFamily="@font/lato_regular"
             android:onClick="@{() -> presenter.onAddCarClick()}"
-            android:text="@string/button_add_city"
+            android:text="@string/button_add_car"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/white"
