@@ -24,5 +24,5 @@ class DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideWeatherDao(db: AppDatabase) = db.carsDao()
+    fun provideCarsDao(db: AppDatabase) = db.carsDao()
 }

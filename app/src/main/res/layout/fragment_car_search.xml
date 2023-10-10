@@ -11,7 +11,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/searchInstructions"
-            style="@style/TextAppearance.PlanRadarWeather.Text.Small"
+            style="@style/TextAppearance.CarsRecognition.Text.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/grid_20"

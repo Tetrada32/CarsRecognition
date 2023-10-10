@@ -10,7 +10,7 @@ import com.gahov.domain.entity.cars.Region
 
 
 /**
- * A class providing mapping functions for converting to domain weather data from Car response.
+ * A class providing mapping functions for converting to domain data from Car response.
  */
 class CarResponseToDomainMapper : ApiMapper<ApiCar, CarEntity> {
 
@@ -18,7 +18,7 @@ class CarResponseToDomainMapper : ApiMapper<ApiCar, CarEntity> {
      * Converts a CarAPI response model to the corresponding car domain model.
      *
      * @param apiModel The CarAPI response model to be converted.
-     * @return The resulting weather domain model [CarEntity].
+     * @return The resulting car domain model [CarEntity].
      */
     override fun toDomain(apiModel: ApiCar): CarEntity {
         val mOperations = emptyList<Operations>().toMutableList()

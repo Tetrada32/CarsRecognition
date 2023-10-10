@@ -17,7 +17,7 @@ interface LocalSource {
     /**
      * Retrieves all cars data list from the local data source.
      *
-     * @return A list of [CarDTO] containing weather information for the city.
+     * @return A list of [CarDTO] containing information of the car.
      */
     suspend fun getAllCarsData(): List<CarDTO>
 

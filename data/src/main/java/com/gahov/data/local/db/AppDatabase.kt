@@ -19,7 +19,7 @@ import com.gahov.data.local.storage.cars.CarsDao
 abstract class AppDatabase : RoomDatabase() {
 
     /**
-     * Provides access to the [CarsDao] for database operations related to weather data.
+     * Provides access to the [CarsDao] for database operations related to cars data.
      *
      * @return An instance of the [CarsDao] interface.
      */

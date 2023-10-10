@@ -23,7 +23,7 @@ class CarDetailsViewModel @Inject constructor(
     var model = CarDisplayModel()
 
     fun loadContent(args: CarDetailsFragmentArgs) {
-        submitList(true)
+        submitList()
 
         val carData = args.carData
         val carDigits = args.carDigits
@@ -47,17 +47,16 @@ class CarDetailsViewModel @Inject constructor(
 
     private fun onResultSuccess(result: CarEntity) {
         model = modelBuilder.buildCarModel(listOf(result))[0]
-        submitList(false)
+        submitList()
     }
 
-    private fun submitList(isLoading: Boolean) {
-//        model.isLoading.set(isLoading)
+    private fun submitList() {
         handleCommand(CarDetailsCommand.DisplayContent(model))
     }
 
     private fun onResultFailure(failureResult: Failure) {
         model = CarDisplayModel()
-        submitList(false)
+        submitList()
         handleFailure(failureResult)
     }
 

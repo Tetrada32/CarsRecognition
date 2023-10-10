@@ -15,7 +15,7 @@ class CarListToCarModelBuilder @Inject constructor(private val context: Context)
     CarEntityBuilder {
 
     /**
-     * Builds a list of CarDisplayModel instances from the provided list of WeatherEntity instances.
+     * Builds a list of CarDisplayModel instances from the provided list of CarEntity instances.
      *
      * @param entityItems The list of CarEntity instances to be converted to CarDisplayModel instances.
      * @return The list of CarDisplayModel instances representing the data from the CarEntity instances.

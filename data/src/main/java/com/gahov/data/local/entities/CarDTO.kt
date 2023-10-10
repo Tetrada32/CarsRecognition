@@ -6,7 +6,7 @@ import com.gahov.domain.entity.cars.Operations
 import com.gahov.domain.entity.cars.Region
 
 /**
- * An entity representing weather data, stored in a database.
+ * An entity representing cars data, stored in a database.
  *
  */
 

@@ -34,7 +34,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/itemCarDigits"
-            style="@style/TextAppearance.PlanRadarWeather.Headline2"
+            style="@style/TextAppearance.CarsRecognition.Headline2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/grid_24"
@@ -50,7 +50,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/itemCarName"
-            style="@style/TextAppearance.PlanRadarWeather.Subtitle"
+            style="@style/TextAppearance.CarsRecognition.Subtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -64,7 +64,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/itemCarYear"
-            style="@style/TextAppearance.PlanRadarWeather.Subtitle"
+            style="@style/TextAppearance.CarsRecognition.Subtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/grid_35"

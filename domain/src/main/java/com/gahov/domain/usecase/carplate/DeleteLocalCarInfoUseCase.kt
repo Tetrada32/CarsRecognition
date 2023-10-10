@@ -20,7 +20,7 @@ class DeleteLocalCarInfoUseCase(
 
 
     /**
-     * Executes the use case to delete weather information for a specified car.
+     * Executes the use case to delete information for a specified car.
      *
      * @param param The parameters for executing the use case, which should be of type [GetCarParams].
      * @return An [Either] instance containing either a [Failure] if the operation fails, or a [List]

@@ -15,6 +15,6 @@ class EntityBuilderModule {
 
     @Provides
     @Reusable
-    internal fun provideWeatherEntityBuilder(context: Context): CarEntityBuilder =
+    internal fun provideCarEntityBuilder(context: Context): CarEntityBuilder =
         CarListToCarModelBuilder(context)
 }

@@ -14,7 +14,7 @@ import com.gahov.data.local.entities.CarDTO
 interface CarsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertItems(cityWeatherList: List<CarDTO>)
+    fun insertItems(carsList: List<CarDTO>)
 
     @Query("SELECT * FROM carData")
     fun getAll(): List<CarDTO>

@@ -49,7 +49,7 @@
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/carsSelectorTitle"
-                        style="@style/TextAppearance.PlanRadarWeather.Headline"
+                        style="@style/TextAppearance.CarsRecognition.Headline"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -81,7 +81,7 @@
             tools:visibility="visible">
 
             <androidx.appcompat.widget.AppCompatTextView
-                style="@style/TextAppearance.PlanRadarWeather.Text.Small"
+                style="@style/TextAppearance.CarsRecognition.Text.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_regular"

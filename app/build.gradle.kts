@@ -67,6 +67,9 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
     implementation("androidx.activity:activity-ktx:1.7.2")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -76,12 +79,13 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("dev.chrisbanes.insetter:insetter-dbx:0.6.1")
     implementation("dev.chrisbanes.insetter:insetter:0.6.1")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
 
+    kapt("com.google.dagger:hilt-android-compiler:2.47")
     implementation("com.google.dagger:hilt-android:2.47")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
     implementation("com.google.firebase:firebase-analytics-ktx")
@@ -90,17 +94,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-vision:20.1.3")
     implementation("androidx.room:room-ktx:2.5.2")
 
-    kapt("com.google.dagger:hilt-android-compiler:2.47")
-
     implementation("androidx.startup:startup-runtime:1.1.1")
-
     implementation("io.coil-kt:coil:2.2.2")
-
     implementation("com.guolindev.permissionx:permissionx:1.7.1")
-
-    implementation("com.airbnb.android:lottie:5.2.0")
-
-    implementation(project(":data"))
-    implementation(project(":domain"))
-
 }

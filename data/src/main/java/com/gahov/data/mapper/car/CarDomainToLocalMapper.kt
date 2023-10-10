@@ -6,7 +6,7 @@ import com.gahov.domain.entity.cars.CarEntity
 
 
 /**
- * A class providing mapping functions for converting weather domain model data to and from
+ * A class providing mapping functions for converting car domain model data to and from
  * local database model data.
  */
 class CarDomainToLocalMapper : DbMapper<CarEntity, CarDTO> {
